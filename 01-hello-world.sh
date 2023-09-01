@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Hello-world I am learning DevOps with AWS"
-PERSON1=Ramesh
-PERSON2=Suresh
+PERSON1=Kavitha
+PERSON2=Abhinaya
 
 echo "$PERSON1 : Hi $PERSON2, good morning"
 echo "$PERSON2 : Hi, good morning $PERSON1"
