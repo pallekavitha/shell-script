@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# if our program goal is to install mysql
+# our program goal is to install mysql
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log
 
-USERID=$(id -u)
 # this function should validate the previous command and inform user it is success or failure
 VALIDATE(){
     #$1--> it will receive the arguement1
@@ -13,7 +15,10 @@ VALIDATE(){
     else
         echo "$2 ... SUCCESS"
     fi
-}             
+
+}   
+
+USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then
@@ -23,11 +28,11 @@ else
     echo "INFO:: you are root user"
 fi
  
- # it is our responsibility again to check installation is success or not
-yum install mysql -y
+# it is our responsibility again to check installation is success or not
+yum install mysql -y &>>$LOGFILE
 
-VALIDATE $? "Installing MySQL"
+VALIDATE $? "Installing MySQL" "Installing MySQL"
 
 yum install postfix -y
 
-VALIDATE $? "Installing postfix"
+VALIDATE $? "Installing postfix" "Installing postfix"
