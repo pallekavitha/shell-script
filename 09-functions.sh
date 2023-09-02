@@ -15,10 +15,10 @@ VALIDATE(){
     #$1 --> it will receive the arguement1
     if [ $1 -ne 0 ]
     then
-        echo "$2 ... $R FAILURE $N"
+        echo -e "$2 ... $R FAILURE $N"
         exit 1
     else
-        echo "$2 ... $G SUCCESS $N"
+        echo -e "$2 ... $G SUCCESS $N"
     fi
 }   
 
@@ -28,8 +28,8 @@ if [ $USERID -ne 0 ]
 then
     echo "ERROR:: Please run this script with root access"
     exit 1
-else
-    echo "INFO:: you are root user"
+# else
+#    echo "INFO:: you are root user"
 fi
  
 # it is our responsibility again to check installation is success or not
