@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# iour program goal is to install mysql
+# if our program goal is to install mysql
 
 USERID=$(id -u)
 
@@ -21,4 +21,14 @@ then
     exit 1
 else
     echo "Installation of mysql is success"
+fi
+
+yum install postfix -y
+
+if [ $? -ne 0 ]
+then 
+    echo "Installation of postfix is error"
+    exit 1
+else
+    echo "Installation of postfix is success"
 fi
